@@ -1,0 +1,64 @@
+{% extends 'global/tables-data.html' %}
+{% block tablename %}Contratos{% endblock tablename %}
+{% block table %}
+    <div class="table-responsive">
+    <table class="table table-striped table-responsive">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Contrato</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Início Contrato</th>
+            <th scope="col">Fim Contrato</th>
+            <th scope="col">Amortização</th>
+            <th scope="col">Juros</th>
+            <th scope="col">Montante</th>
+            <th scope="col">Prazo</th>
+            <th scope="col">Und. do Prazo</th>
+            <th scope="col">Data de Criação</th>
+            <th scope="col">Data de Atualização</th>
+            <th scope="col">Parcela</th>
+            <th scope="col">Núm. Parcelas</th>
+            <th scope="col">Data Início Pgto</th>
+            <th scope="col">Data Fim Pgto</th>
+            <th scope="col">Atendente</th>
+            <th scope="col">Criador</th>
+            <th scope="col">Cliente</th>
+            <th scope="col">Código BCB</th>
+            <th scope="col">Sistema de Amortização</th>
+            
+        </tr>
+        </thead>
+        <tbody>
+            {% for contract in page_obj %}
+                <tr>
+                    <th scope="row">{{contract.pk}}</th>
+                    <td>{{contract.contract_name}}</td>
+                    <td>{{contract.contract_description}}</td>
+                    <td>{{contract.contract_start_date}}</td>
+                    <td>{{contract.contract_end_date}}</td>
+                    <td>{{contract.amortization_type}}</td>
+                    <td>{{contract.interest_rate}}</td>
+                    <td>{{contract.contract_value}}</td>
+                    <td>{{contract.contract_term}}</td>
+                    <td>{{contract.contract_term_unit}}</td>
+                    <td>{{contract.contract_created_at}}</td>
+                    <td>{{contract.contract_updated_at}}</td>
+                    <td>{{contract.contract_installment_value}}</td>
+                    <td>{{contract.contract_installment_number}}</td>
+                    <td>{{contract.contract_installment_start_date}}</td>
+                    <td>{{contract.contract_installment_end_date}}</td>
+                    <td>{{contract.contract_owner}}</td>
+                    <td>{{contract.contract_created_by}}</td>
+                    <td>{{contract.contract_customer}}</td>
+                    <td>{{contract.contract_bcb_sgs_code}}</td>
+                    <td>{{contract.contract_amortization_system}}</td>
+                </tr>
+            {% endfor %}
+                        
+        </tbody>
+    </table>
+    </div>
+  <!-- End Table with stripped rows -->
+{% endblock table %}
+

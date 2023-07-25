@@ -1,0 +1,190 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+
+{% include 'global/partials/_head.html' %}
+
+
+<title>Components / Breadcrumbs - NiceAdmin Bootstrap Template</title>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  {% include 'global/partials/_header.html' %}
+  <!-- End Header -->
+
+  <!-- ======= Sidebar ======= -->
+  {% include 'global/partials/_sidebar.html' %}
+  <!-- End Sidebar-->
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Breadcrumbs</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="{% url 'main:homepage' %}">Home</a></li>
+          <li class="breadcrumb-item">Components</li>
+          <li class="breadcrumb-item active">Breadcrumbs</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section">
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Default Breadcrumbs</h5>
+
+              <nav>
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'main:homepage' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">Library</a></li>
+                  <li class="breadcrumb-item active">Default</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Centered</h5>
+
+              <nav class="d-flex justify-content-center">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'main:homepage' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">Library</a></li>
+                  <li class="breadcrumb-item active">Centered Position</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Right Positioned</h5>
+
+              <nav class="d-flex justify-content-end">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'main:homepage' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">Library</a></li>
+                  <li class="breadcrumb-item active">Right Position</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">With Home Icon</h5>
+
+              <nav>
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'main:homepage' %}"><i class="bi bi-house-door"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#">Library</a></li>
+                  <li class="breadcrumb-item active">Default</li>
+                </ol>
+              </nav>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Breadcrumbs with a page title</h5>
+
+              <div class="pagetitle">
+                <h1>Page Title</h1>
+                <nav>
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{% url 'main:homepage' %}">Home</a></li>
+                    <li class="breadcrumb-item">Components</li>
+                    <li class="breadcrumb-item active">Breadcrumbs</li>
+                  </ol>
+                </nav>
+              </div><!-- End Breadcrumbs with a page title -->
+
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Breadcrumbs with different dividers</h5>
+
+              <nav style="--bs-breadcrumb-divider: '>';">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'main:homepage' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">Library</a></li>
+                  <li class="breadcrumb-item active">Data</li>
+                </ol>
+              </nav>
+
+              <nav style="--bs-breadcrumb-divider: '|';">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'main:homepage' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">Library</a></li>
+                  <li class="breadcrumb-item active">Data</li>
+                </ol>
+              </nav>
+
+              <nav style="--bs-breadcrumb-divider: '-';">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'main:homepage' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">Library</a></li>
+                  <li class="breadcrumb-item active">Data</li>
+                </ol>
+              </nav>
+
+              <nav style="--bs-breadcrumb-divider: '•';">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'main:homepage' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">Library</a></li>
+                  <li class="breadcrumb-item active">Data</li>
+                </ol>
+              </nav>
+
+              <nav style="--bs-breadcrumb-divider: '';">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="{% url 'main:homepage' %}">Home</a></li>
+                  <li class="breadcrumb-item"><a href="#">Library</a></li>
+                  <li class="breadcrumb-item active">Data</li>
+                </ol>
+              </nav>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  {% include 'global/partials/_footer.html' %}
+  <!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'global/vendor/apexcharts/apexcharts.min.js' %}"></script>
+  <script src="{% static 'global/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'global/vendor/chart.js/chart.umd.js' %}"></script>
+  <script src="{% static 'global/vendor/echarts/echarts.min.js' %}"></script>
+  <script src="{% static 'global/vendor/quill/quill.min.js' %}"></script>
+  <script src="{% static 'global/vendor/simple-datatables/simple-datatables.js' %}"></script>
+  <script src="{% static 'global/vendor/tinymce/tinymce.min.js' %}"></script>
+  <script src="{% static 'global/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'global/js/main.js' %}"></script>
+
+</body>
+
+</html>

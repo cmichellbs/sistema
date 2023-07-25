@@ -1,0 +1,563 @@
+2004-01-01    41.40
+2004-02-01    40.30
+2004-03-01    40.30
+2004-04-01    38.30
+2004-05-01    38.50
+              ...  
+2023-01-01    26.71
+2023-02-01    26.67
+2023-03-01    26.35
+2023-04-01    25.91
+2023-05-01    25.81
+Name: 20747, Length: 233, dtype: float64
+20747
+2004-01-01	41.40
+2004-02-01	40.30
+2004-03-01	40.30
+2004-04-01	38.30
+2004-05-01	38.50
+...	...
+2023-01-01	26.71
+2023-02-01	26.67
+2023-03-01	26.35
+2023-04-01	25.91
+2023-05-01	25.81
+233 rows × 1 columns
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html locale="true" lang="en-us">
+ <script language="JavaScript">
+
+	var nomeContexto="sgspub"
+	var vFormatoData="dd/MM/yyyy"
+	var vFormatoNumerico="B"
+
+	var msgSelecioneSerie="Select a series."
+	var msgSelecioneSerie="Select a series."
+	var msgSelecioneApenasUmaSerie="Select only one series."
+	var msgDigiteDataInicio="Type valid start date."
+	var msgDigiteDataFim="Type valid end date."
+	var msgDataInicioPostDatafim="Start date can not be posterior to end date."
+	var msgShiftDesabilitado="Shift-click disabled."
+	var msgBotaoDireitoDesabilitado="Right-click disabled."
+	var msgDigiteDescricaoFiltro="Type a description."
+	var msgDigiteNomeFiltro="Type a name."
+	var msgSelecioneFiltro="Select a list."
+	var msgConfirmaExclusaoFiltro="Confirm deletion?"
+	var msgCaracteresRestantes="Remaining characters:&nbsp;"
+	var msgMaxQtdSeriesSelecao="You selected more than 1000 series. Please, reduce the amount of series to be consulted."
+
+	var msgJaneiro="january"
+	var msgFevereiro="february"
+	var msgMarco="march"
+	var msgAbril="april"
+	var msgMaio="may"
+	var msgJunho="june"
+	var msgJulho="july"
+	var msgAgosto="august"
+	var msgSetembro="september"
+	var msgOutubro="october"
+	var msgNovembro="november"
+	var msgDezembro="december"
+	var msgHoje="Today"
+	var msgISegunda="M"
+	var msgITerca="T"
+	var msgIQuarta="W"
+	var msgIQuinta="T"
+	var msgISexta="F"
+	var msgISabado="S"
+	var msgIDomingo="S"
+	var msgSegunda="Monday"
+	var msgTerca="Tuesday"
+	var msgQuarta="Wednesday"
+	var msgQuinta="Thursday"
+	var msgSexta="Friday"
+	var msgSabado="Saturday"
+	var msgDomingo="Sunday"
+ </script>
+<head>
+  
+  <title>Time Series Management System</title>
+  <link rel="stylesheet" type="text/css" href="/css/sistema.css">
+  
+  
+
+
+
+
+<script type="text/javascript"><!--
+
+var isFrame=false;
+//-->
+</script>
+<script type="text/javascript" src="/sgspub/js/menu2base.js"></script>
+<script type="text/javascript" src="/sgspub/js/basico.js"></script>
+<script type="text/javascript" src="/sgspub/js/validadata.js"></script>
+<script type="text/javascript" src="/sgspub/js/sgs.js"></script>
+<script type='text/javascript' defer>
+//<!--
+//---Menu---
+function retAm(it){
+  // Informe o nome do array correspondente ao identificador
+  var wIt=it+""
+  switch (wIt){
+
+    case '1':return aM1
+    case '2':return aM2
+    case '3':return aM3
+    case '4':return aM4
+
+    case '1_1':return aM1_1
+    
+
+
+    case '5':return null
+
+
+
+
+    case '5_1':return null
+
+
+    default:return false
+
+  }
+}
+
+function abrirAjudaSistema(){
+	top.newWin = window.open("/sgspub/JSP/sgsgeral/sgsAjudaIng.jsp","Help", "resizable=yes,dependent=yes,scrollbars=yes,toolbar=0,height=400");
+}
+
+function abrirFaleConosco(){
+	top.newWin = window.open("http://www4.bcb.gov.br/ContactUs.asp?CONTACTUS","Help", "menubar=yes,location=yes,status=yes,resizable=yes,dependent=yes,scrollbars=yes,toolbar=yes,height=400");
+}
+
+if (isMenu) {
+
+aM1 = new Array(155,0,0,"black","#0066ff","#eeeeee","white","#0066ff","#d0d0d0"
+	,"Series","/sgspub/consultarvalores/telaCvsSelecionarSeries.paint",0,0
+	,"Metadata (definitions, methodologies, etc.)","/sgspub/consultarmetadados/telaCmsSelecionarSeries.paint",0,0
+	,"Economic and financial statistics","#",1,1
+)
+
+aM1_1 = new Array(
+		"Interest rates","/sgspub/pefi300/telaCtjSelecao.paint",0,0
+		,"Saving deposits","/sgspub/pefi300/telaCadernetaPoupanca.paint",0,0
+		,"Dolar/Gold","/sgspub/pefi300/telaCdoSelecao.paint",0,0
+		,"Investments","/sgspub/pefi300/telaAplicacoesFinanceiras.paint",0,0
+	)
+
+aM2 = new Array(155,0,0,"black","#0066ff","#eeeeee","white","#0066ff","#d0d0d0"
+	,"Create","/sgspub/manterfiltros/telaMfsCriarFiltro.paint",0,0
+	,"Edit","/sgspub/manterfiltros/listarFiltrosUsuario.do?method=listarFiltrosAlterar",0,0
+	,"Delete","/sgspub/manterfiltros/listarFiltrosUsuario.do?method=listarFiltrosExcluir",0,0
+	,"View","/sgspub/manterfiltros/listarFiltrosUsuario.do?method=listarFiltrosUsuario",0,0
+)
+
+aM3 = new Array(155,0,0,"black","#0066ff","#eeeeee","white","#0066ff","#d0d0d0"
+	,"Environment","/sgspub/configurarambiente/telaCamConfiguracoes.paint",0,0
+)
+aM4 = new Array(155,0,0,"black","#0066ff","#eeeeee","white","#0066ff","#d0d0d0"
+	,"System help","javascript:abrirAjudaSistema();",0,0
+	,"Contact us","javascript:abrirFaleConosco();",0,0
+)
+aM5 = new Array(155,0,0,"black","#0066ff","#eeeeee","white","#0066ff","#d0d0d0"
+
+)
+
+
+
+// iniciando o menu
+iniciaMenu();
+}
+//-->
+</script>
+
+</head>
+<body class="menu">
+  
+
+
+
+
+
+<script type="text/javascript" src="/sgspub/js/sgs.js"></script>
+<script language="Javascript">
+function getDt(){
+	dt=new Date();
+	hrs=dt.getHours();
+	min=dt.getMinutes();
+	sec=dt.getSeconds();
+	Tm=" "+((hrs<10)?"0":"") +hrs+":";
+	Tm+=((min<10)?"0":"")+min+":";
+	Tm+=((sec<10)?"0":"")+sec+" ";
+	document.frmHora.txCabecalhoHora.value=Tm;
+}
+</script>
+
+<a name="Top"></a>
+<table cellpadding="4" cellspacing="0" border='0' bordercolor="#FFFFFF" width='100%'>
+    <tr>
+    <td class="cab">
+      <a href="/sgspub/">
+      <img style="margin-left:3px;margin-top:3px" src="/img/logoSistemas.gif">
+      </a>
+    </td>
+    <td  class="cab" width="80%" align="left">
+      <div class="txN">Time Series Management System - v2.1</div>
+      <div class="tx">Public module</div>
+    </td>
+    <td class="cab" nowrap="true" align="right">
+      <div class="tx" style="margin-right:3px">Public user</div>
+      <div class="txP" style="margin-right:3px">
+	23/07/2023 22:28
+      </div>
+      <a href=javascript:alterarIdioma('P'); title='Change language to portuguese'>
+      	<div class="fundoPadraoAClaro3" align="center" style="margin-right:3px margin-left:3px;margin-top:3px">
+		<span class='textoPequeno' style='color:#003366'>
+		Português
+		</span>
+      	</div>
+      </a>
+    </td>
+    </tr>
+</table>
+  
+
+
+
+
+
+<table cellspacing=0 cellpadding=0 class="semBorda" width='100%'>
+    <tr class=transp>
+        <td colspan=3 align=left class=fuM>
+        <span id=omenu>
+          	<span class=lkM><a href="javascript:void(0)" onmouseout="popDown('eM1')" onmouseover="popUp('eM1',event)">Search</a></span>|
+          	<span class=lkM><a href="javascript:void(0)" onmouseout="popDown('eM2')" onmouseover="popUp('eM2',event)">My series lists</a></span>|
+			<span class=lkM><a href="javascript:void(0)" onmouseout="popDown('eM3')" onmouseover="popUp('eM3',event)">Configuration</a></span>|
+			<span class=lkM><a href="javascript:void(0)" onmouseout="popDown('eM4')" onmouseover="popUp('eM4',event)">Help</a></span>|
+        </span>
+        </td>
+    </tr>
+</table>
+
+  
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/sgspub/estilos/localizarSeries.css">
+
+
+<script language="JavaScript" src="../js/validadata.js"></script>
+<script language="JavaScript">
+	/*
+	Essa variável é utilizada pelo calendário no arquivo calendario.js.
+	Está sendo inicializada aqui para que possa receber o valor que está
+	armazenado no objeto session, já que dentro de um arquivo js não é
+	possível acessar esse objeto.
+	*/
+	var calDateFormat = "dd/MM/yyyy";
+</script>
+
+<script language="JavaScript" src="../js/swfobject/swfobject.js"></script>
+<script language="JavaScript" src="../js/cviConsultarValores.js"></script>
+<script language="JavaScript" src="../js/calendario.js"></script>
+
+<script type="text/javascript">
+
+function carregarGrafico() {
+		document.getElementById('divGrafico').innerHTML = "<iframe" +
+			" id='frmGraficoAlt'" +
+			" width='940'" +
+			" height='640'" +
+			" frameborder='0'" +
+			" src='consultarValoresSeries.do?method=consultarGraficoEstatico'></iframe>";
+}
+
+swfobject.addLoadEvent(carregarGrafico);
+
+</script>
+
+<script type="text/javascript" src="/js/calendario/calendar.js"></script>
+
+    <script type="text/javascript" src="/js/calendario/calendar-en.js"></script>
+
+<script type="text/javascript" src="/js/calendario/calendar-setup.js"></script>
+
+<div>
+	<span class='trilhaNav' style="float:left">
+		<a href="/sgspub/" target="_top">Initial</a>
+		<img src='/img/seta.gif' border='0'>Search series
+		<img src='/img/seta.gif' border='0'>View chart of values
+	</span>
+	<span style="float:right">
+		<span class="codTela">[SGSFW2303]&nbsp;&nbsp;</span>
+		<span class="fundoPadraoAEscuro3">&nbsp;
+			<a href="#" onclick="top.newWin = window.open('/sgspub/JSP/sgsgeral/sgsAjudaIng.jsp#PV','Ajuda', 'resizable=yes,dependent=yes,scrollbars=yes,toolbar=0,height=400')">
+		  		<img title="Show system help" alt="Show system help" src="/img/fundoclaro/glos2.gif">
+			</a>&nbsp;
+		</span>&nbsp;&nbsp;
+	</span>
+</div>&nbsp;
+<center>
+  <img alt="Warning" src="/img/adver_15x15.gif" border="0" style="vertical-align:middle;"/>&nbsp;Series updated according to the <u><b>new IBGE's calculation methodology</b></u> for GDP and released in March 2007.
+  
+ <br><br>
+  <div class="titulo1">View chart of values</div>
+   <br>
+
+   <br><br>
+
+	<div id="divGrafico"></div>
+
+<br><br>
+
+<form name="consultarValoresSeriesForm" method="post" action="/sgspub/consultarvalores/consultarValoresSeries.paint?method=consultarValores">
+
+<table class="tabela" id='seriesSelecionadas' border="0" width='90%' cellspacing="1" summary="Esta tabela contém as séries selecionadas">
+	<thead class="textoPequeno">
+	    <tr class="fundoPadraoAEscuro2">
+	    	<td colspan="7"><b>Found series</b></td>
+	    </tr>
+	    <tr>
+			<th align="middle" class="fundoPadraoAEscuro3" nowrap title="Code">
+			<div align="center"><span align="center">Code</span></div>
+			</th>
+			<th align="middle" class="fundoPadraoAEscuro3" nowrap title="Full name">			
+			<div align="center"><span align="center">Full name</span></div>
+			</th>
+			<th align="middle" class="fundoPadraoAEscuro3" nowrap title="Unit">	
+			<div align="center"><span align="center">Unit</span></div>
+			</th>
+			<th align="middle" class="fundoPadraoAEscuro3" nowrap title="Periodicity">
+			<div align="center"><span align="center">Per.</span></div>
+			</th>
+			<th align="middle" class="fundoPadraoAEscuro3" nowrap title="Initial Date">
+			<div align="center"><span align="center">Start</span></div>
+			</th>
+			<th align="middle" class="fundoPadraoAEscuro3" nowrap title="Series last value date">
+			<div align="center"><span align="center">Last value</span></div>
+			</th>
+			<th align="middle" class="fundoPadraoAEscuro3" nowrap title="Y Axis">
+			<div align="center"><span align="center">Y Axis</span></div>
+			</th>
+		</tr>
+	</thead>
+
+	<tr class='fundoPadraoAClaro3' onMouseOver="javascript:linhaValoresOnMouseOver(this);" onMouseOut="javascript:linhaValoresOnMouseOut(this);">
+		<td align="center" class="txtMenor1">1</td>
+		<td align="left"   class="txtMenor1">Exchange rate - Free - United States dollar (sale) - 1</td>
+		<td align="left"   class="txtMenor1">c.m.u./US$</td>
+		<td align="center" class="txtMenor1" title="Daily">D</td>
+		<td align="center" class="txtMenor1">28/11/1984</td>
+		<td align="center" class="txtMenor1">21/07/2023</td>
+		<td align="center" class="txtMenor1">
+			<select id="cboEixo1" name="cboEixo1">
+				<option value="1">Primary</option>
+				<option value="2">Secondary</option>
+			</select>
+		</td>
+	</tr>
+	
+
+</table>
+
+<br>
+ <table class="tabela" cellspacing="1" summary="Esta tabela contém os parâmetros para a consulta de valores" width="90%">
+    <tr>
+      <td colspan="5" align='right' class='obs'> Fields with * are required</td>
+    </tr>
+
+ <tr class="fundoPadraoAEscuro3">
+	<td colspan='2'><b>Search parameters</b></td>
+ </tr>
+
+ 
+ <tr class="fundoPadraoAClaro3" style="height:30px;">
+     <td colspan="2" align="center" width='50%'>
+         * <label for="lbPeriodo">Period&nbsp;&nbsp;</label>
+         <input type="text" name="dataInicio" maxlength="10" size="10" tabindex="0" value="23/07/2013" onkeyup="formatarData(this,'/')" id="dataInicio">
+
+	<!-- Componente CalendarioTag gerado por br.gov.bcb.comum.taglib.html.CalendarioTag -->
+	<img src="/img/calen_azul.gif" id="dataInicio-button" style="cursor: pointer;" title='Show calendar'/>
+	<script type='text/javascript'>
+           var ifFormat = "%d/%m/%Y ";
+           if (calDateFormat!="DD/MM/yyyy"){
+              ifFormat ="%m/%d/%Y ";
+           }
+
+	function catcalc(cal, campo) {
+	var date = cal.date;
+	var time = date.getTime();
+	var field2 = document.getElementById("dataInicio");
+	var date2 = new Date(time);
+	field2.value = date2.print(ifFormat);
+	}
+
+	Calendar.setup({
+	inputField : "dataInicio"
+	, button : "dataInicio-button"
+	, ifFormat : ifFormat
+	, align : "Bl"
+	, showsTime : false
+	, timeFormat :  "24"
+	,onUpdate: catcalc
+	});
+
+	</script>
+	<!-- Fim do componente CalendarioTag -->
+        &nbsp;a&nbsp;
+
+        <input type="text" name="dataFim" maxlength="10" size="10" value="23/07/2023" onkeyup="formatarData(this,'/')" id="dataFim">
+
+	<!-- Componente CalendarioTag gerado por br.gov.bcb.comum.taglib.html.CalendarioTag -->
+	<img src="/img/calen_azul.gif" id="dataFim-button" style="cursor: pointer;" title='Show calendar'/>
+
+	<script type='text/javascript'>
+	  function catcalc(cal) {
+  	   var date = cal.date;
+ 	   var time = date.getTime();
+	   var field2 = document.getElementById("dataFim");
+	   var date2 = new Date(time);
+	   field2.value = date2.print(ifFormat);
+	  }
+
+	  Calendar.setup({
+	    inputField : "dataFim"
+	  , button : "dataFim-button"
+	  , ifFormat : ifFormat
+	  , align : "Bl"
+	  , showsTime : false
+	  , timeFormat :  "24"
+	  ,onUpdate: catcalc
+ 	  });
+
+	</script>
+	<!-- Fim do componente CalendarioTag -->
+
+     </td>
+  </tr>
+
+  <tr class="fundoPadraoAClaro3" style="height:30px;">
+    <td align="center">
+		Function
+		<select name="selFuncao">
+			<option value="0" selected='selected'>Linear</option>
+			<option value="1" >Logarithmic</option>
+			<option value="2" >Percentage Change</option>
+
+			<option value="3" >Annual Percent Change</option>
+
+
+			<option value="4" >Year Percentage Change</option>
+
+			<option value="5" >Moving Average (3 months)</option>
+			<option value="6" >Moving Average (6 months)</option>
+			<option value="7" >Moving Average (12 months)</option>
+		</select>
+    </td>
+
+    <td align="center">
+       * <label for="lbTipoArq">Download file&nbsp;&nbsp;</label>
+     <select name="selTipoArqDownload">
+     		<option value="0" >CSV in portuguese</option>
+     		<option value="1" >CSV in english</option>
+     		<option value="2" selected='selected'>Do not generate</option>
+     </select>
+    </td>
+  </tr>
+ </table>
+<br>
+
+<div class="cen">
+    <input class="botao" type="button" value="Refresh chart" title="Refresh chart" onclick="javascript:atualizarGrafico(document.forms[0]);">
+    <input class="botao" type="button" value="View values from chart" title="View values" onclick="javascript:visualizarValores(document.forms[0]);">
+</div>
+<br>
+
+<input type="hidden" name="hdOidSeriesSelecionadas" value="1">
+<input type="hidden" name="graficoEstatico" value="true">
+</form>
+</center>
+
+
+  <!--
+<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<p align="center"><span class="titulo1">System unavailable. Possible return: 02/26/2007 at 07:00.</span></p>-->
+  
+
+
+
+
+<DIV class='naoimprime' id=toolBar style='width:70;POSITION:absolute;left:-200;font-size:1;'>
+     <span id="navLargura" style="white-space:nowrap;padding-top:1;height:20;">
+	<a href="#"><img valign='middle' src="/img/home/navtopo.gif" title='Go to the top' alt='Go to the top' style="border:solid 1 white"></a>
+	<a href="#Bot"><img valign='middle' src="/img/home/navbase.gif" title='Go to the bottom' alt='Go to the bottom' style="border:solid 1 white"></a>
+        <a href="javascript:history.back();"><img valign="middle" src="/img/home/navvolta.gif" title='Back a page' alt='Back a page' style="border:solid 1 white"></a>
+        <a href="/sgspub/" target="_top"><img valign="middle" src="/img/home/navinicial.gif" title='Go to the homepage' alt='Go to the homepage' style="border:solid 1 white"></a>
+        <a href="javascript:window.print();"><img valign="middle" src="/img/home/navimprimir.gif" title='Print page' alt='Print page' style="border:solid 1 white"></a>
+     </span>
+</DIV>
+
+<a name="Bot"/>
+
+<script>
+  javascript:inicial();
+</script>
+  <input name="bilQtde" type="hidden" value="1" size="1">
+</body>
+</html>
+
+data	valor
+0	28/11/1984	2828.0000
+1	29/11/1984	2828.0000
+2	30/11/1984	2881.0000
+3	03/12/1984	2881.0000
+4	04/12/1984	2881.0000
+...	...	...
+9678	17/07/2023	4.8302
+9679	18/07/2023	4.8040
+9680	19/07/2023	4.8000
+9681	20/07/2023	4.7888
+9682	21/07/2023	4.7732
+9683 rows × 2 columns
