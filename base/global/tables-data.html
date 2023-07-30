@@ -6,7 +6,7 @@
 {% include 'global/partials/_head.html' %}
 
 
-<title>Tables / Data - NiceAdmin Bootstrap Template</title>
+<title>MSA - Contratos</title>
 
 <body>
 
@@ -25,8 +25,8 @@
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="{% url 'main:homepage' %}">Home</a></li>
-          <li class="breadcrumb-item">Tables</li>
-          <li class="breadcrumb-item active">Data</li>
+          <li class="breadcrumb-item"><a href="{% url 'revcontract:contracts' %}">Contratos</a></li>
+          
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -45,12 +45,12 @@
               <!-- End Table with stripped rows -->
 
             </div>
+            {% include 'global/partials/_pagination.html' %}
           </div>
 
         </div>
       </div>
     </section>
-    {% include 'global/partials/_pagination.html' %}
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->

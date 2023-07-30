@@ -1,0 +1,526 @@
+{
+    "new": {
+        "id": "02",
+        "orderId": "1341931223847",
+        "channelId": "lancaperfume",
+        "clientId": "lamoda",
+        "locationId": "000009",
+        "operator": null,
+        "ownership": "OMS",
+        "shipment": null,
+        "status": "CANCELED",
+        "type": "PICKUP",
+        "extensionAttributes": [],
+        "invoiceKey": null,
+        "billingDeadlineAt": null,
+        "createdAt": "2023-06-24T16:48:49.000Z",
+        "updatedAt": "2023-06-30T16:50:56.000Z",
+        "deletedAt": null,
+        "freightCosts": {
+            "totalTime": 1,
+            "totalPrice": 0,
+            "handlingTime": 0,
+            "handlingPrice": 0
+        },
+        "pickup": {
+            "prepaid": true,
+            "determinantAddress": {
+                "zip": "88865000",
+                "city": "Nova Veneza",
+                "state": "SC",
+                "number": "1137 ",
+                "country": "Brasil",
+                "address1": "Rua Alfredo Pessi",
+                "location": {
+                    "description": "Ind e Com de Confec La Moda Ltda",
+                    "tradingName": "La Moda (CD)"
+                },
+                "telephone": {
+                    "type": "shipment",
+                    "number": "48 3436-6900",
+                    "countryCode": "48"
+                },
+                "neighbourhood": "Centro"
+            }
+        },
+        "backOfficeId": null,
+        "saleKey": null,
+        "shippingAmount": 0,
+        "reservationId": null,
+        "processedAt": "2023-06-30T16:50:56.000Z",
+        "cancelReason": null,
+        "enablePrePicking": false,
+        "prePickingFinished": false,
+        "scheduledDeliveryDate": null,
+        "scheduledDeliveryPeriod": null,
+        "poolDeadlineAt": null,
+        "locationType": "Own Store",
+        "totals": {
+            "itemsAmount": 0,
+            "totalAmount": 0,
+            "totalRefunds": 0,
+            "originalAmount": 0,
+            "shippingAmount": 0,
+            "totalItemsRefund": 0,
+            "giftPackageAmount": 0,
+            "totalFreightRefund": 0,
+            "originalItemsAmount": 0,
+            "priceShippingAmount": 0,
+            "originalShippingAmount": 0,
+            "totalGiftPackageRefund": 0,
+            "originalGiftPackageAmount": 0
+        },
+        "allowDeliveryParcial": false,
+        "totalsRounded": [],
+        "totalsRoundedDiff": [],
+        "appliedRules": null,
+        "items": {
+            "501CF006171-A000440": {
+                "sku": "501CF006171-A000440",
+                "id": null,
+                "quantity": 0,
+                "stockType": "PHYSICAL",
+                "orderedQuantity": 1,
+                "returnedQuantity": 0,
+                "canceledQuantity": 1,
+                "shippingPrice": 0,
+                "discount": null,
+                "basePrice": null,
+                "price": null,
+                "salesStartsAt": null,
+                "salesEndsAt": null,
+                "billingStartsAt": null,
+                "shippingItemAmount": null,
+                "extensionAttributes": null,
+                "deletedAt": null,
+                "daysToDelivery": null,
+                "deliveryDate": null,
+                "giftPackage": null,
+                "giftPackagePrice": null,
+                "orderedGiftPackage": null,
+                "itemType": "OTHER",
+                "info": null,
+                "totals": {
+                    "price": 0,
+                    "totalAmount": 0,
+                    "totalDiscount": 0,
+                    "shippingAmount": 0,
+                    "priceDiscounted": 0,
+                    "absoluteDiscount": 0,
+                    "giftPackagePrice": 0,
+                    "priceShippingAmount": 0,
+                    "proportionalDiscount": 0,
+                    "proportionalTotalAmount": 0,
+                    "proportionalShippingAmount": 0
+                },
+                "totalsRoundedDiff": [],
+                "acquisitionType": "PURCHASE",
+                "lotId": null,
+                "acceptSimilarItem": null,
+                "totalsRounded": [],
+                "presale": false,
+                "enablePicking": true
+            },
+            "502VE007669-00627M": {
+                "sku": "502VE007669-00627M",
+                "id": null,
+                "quantity": 0,
+                "stockType": "PHYSICAL",
+                "orderedQuantity": 1,
+                "returnedQuantity": 0,
+                "canceledQuantity": 1,
+                "shippingPrice": 0,
+                "discount": null,
+                "basePrice": null,
+                "price": null,
+                "salesStartsAt": null,
+                "salesEndsAt": null,
+                "billingStartsAt": null,
+                "shippingItemAmount": null,
+                "extensionAttributes": null,
+                "deletedAt": null,
+                "daysToDelivery": null,
+                "deliveryDate": null,
+                "giftPackage": null,
+                "giftPackagePrice": null,
+                "orderedGiftPackage": null,
+                "itemType": "OTHER",
+                "info": null,
+                "totals": {
+                    "price": 0,
+                    "totalAmount": 0,
+                    "totalDiscount": 0,
+                    "shippingAmount": 0,
+                    "priceDiscounted": 0,
+                    "absoluteDiscount": 0,
+                    "giftPackagePrice": 0,
+                    "priceShippingAmount": 0,
+                    "proportionalDiscount": 0,
+                    "proportionalTotalAmount": 0,
+                    "proportionalShippingAmount": 0
+                },
+                "totalsRoundedDiff": [],
+                "acquisitionType": "PURCHASE",
+                "lotId": null,
+                "acceptSimilarItem": null,
+                "totalsRounded": [],
+                "presale": false,
+                "enablePicking": true
+            }
+        },
+        "presale": false,
+        "enablePicking": true,
+        "enableShipping": true,
+        "enableBilling": true,
+        "deadlineAt": null,
+        "statusHistory": [
+            {
+                "status": "PENDING",
+                "operator": null,
+                "processedAt": "2023-06-24T16:48:32.000Z",
+                "timeInStatus": 518544,
+                "createdAt": "2023-06-24T16:48:49.000Z",
+                "updatedAt": "2023-06-30T16:50:56.000Z",
+                "deletedAt": null,
+                "locationId": "000009",
+                "oldData": [],
+                "state": "PENDING"
+            },
+            {
+                "status": "CANCELED",
+                "operator": null,
+                "processedAt": "2023-06-30T16:50:56.000Z",
+                "timeInStatus": null,
+                "createdAt": "2023-06-30T16:50:56.000Z",
+                "updatedAt": "2023-06-30T16:50:56.000Z",
+                "deletedAt": null,
+                "locationId": "000009",
+                "oldData": {
+                    "status": "PENDING",
+                    "processedAt": "2023-06-24 16:48:32"
+                },
+                "state": "CANCELED"
+            }
+        ],
+        "treatments": [],
+        "order": {
+            "billingAddress": {
+                "zip": "41100-800",
+                "city": "Salvador",
+                "state": "BA",
+                "number": "3133",
+                "status": "ACTIVE",
+                "country": "BRA",
+                "address1": "Avenida Tancredo Neves",
+                "address2": "",
+                "lastName": "Araujo da Silva Carvalho",
+                "firstName": "Jarbia Araujo da Silva Carvalho",
+                "telephone": {
+                    "type": "billing",
+                    "number": "+5574988111630",
+                    "countryCode": "",
+                    "description": ""
+                },
+                "description": "pickup",
+                "neighbourhood": "Caminho das \u00c1rvores",
+                "defaultBilling": "false",
+                "defaultShipping": "false"
+            },
+            "channelId": "lancaperfume",
+            "clientId": "lamoda",
+            "customer": {
+                "id": "388059f4-935d-45ff-b343-7cad79f3ea1b",
+                "type": "INDIVIDUAL",
+                "email": "jarbia1980@gmail.com",
+                "gender": "uninformed",
+                "fullName": "jarbia araujo da silva carvalho araujo da silva carvalho",
+                "lastName": "Araujo da Silva Carvalho",
+                "addresses": {
+                    "billing": {
+                        "zip": "41100-800",
+                        "city": "Salvador",
+                        "state": "BA",
+                        "number": "3133",
+                        "status": "ACTIVE",
+                        "country": "BRA",
+                        "address1": "Avenida Tancredo Neves",
+                        "address2": "",
+                        "lastName": "Araujo da Silva Carvalho",
+                        "firstName": "Jarbia Araujo da Silva Carvalho",
+                        "telephone": {
+                            "type": "billing",
+                            "number": "+5574988111630",
+                            "countryCode": "",
+                            "description": ""
+                        },
+                        "description": "pickup",
+                        "neighbourhood": "Caminho das \u00c1rvores",
+                        "defaultBilling": "false",
+                        "defaultShipping": "false"
+                    }
+                },
+                "documents": [
+                    {
+                        "type": "cpf",
+                        "number": "00120884550"
+                    }
+                ],
+                "firstName": "Jarbia Araujo da Silva Carvalho",
+                "telephones": [
+                    {
+                        "type": "billing",
+                        "number": "+5574988111630",
+                        "countryCode": "55",
+                        "description": ""
+                    }
+                ],
+                "socialNumber": "00120884550"
+            },
+            "discount": 0,
+            "id": "1341931223847",
+            "items": [
+                {
+                    "sku": "501CF006171-A000440",
+                    "url": "\/calca-jeans-diana-ankle-high-501cf006171\/p",
+                    "gtin": "7909917468930",
+                    "name": "Cal\u00e7a Jeans Diana Ankle High Azul 40",
+                    "gtins": {
+                        "7909917468930": 0
+                    },
+                    "image": "http:\/\/lojalancaperfume.vteximg.com.br\/arquivos\/ids\/390680-105-150\/1.jpg?v=638217368090030000",
+                    "price": 623,
+                    "width": 35,
+                    "height": 20,
+                    "length": 45,
+                    "weight": 573,
+                    "discount": 0,
+                    "quantity": 1,
+                    "basePrice": 623,
+                    "categories": [
+                        "4",
+                        "17",
+                        "324"
+                    ],
+                    "acquisitionType": "PURCHASE",
+                    "extensionAttributes": {
+                        "ean": "7909917468930",
+                        "ncm": "ZFER",
+                        "origem": "1",
+                        "vtexSku": "226446",
+                        "isFreeGift": false,
+                        "composition": [
+                            {
+                                "vtexSku": "226446",
+                                "quantity": 1,
+                                "fulfillment": "01"
+                            }
+                        ],
+                        "vtexListPrice": 623,
+                        "measurementUnit": "un",
+                        "warehouseExternal": "1009-602"
+                    }
+                },
+                {
+                    "sku": "502VE007669-00627M",
+                    "url": "\/vestido-curto-gola-alta-502ve007669\/p",
+                    "gtin": "7909917231602",
+                    "name": "Vestido Curto Gola Alta Rosa M",
+                    "gtins": {
+                        "7909917231602": 0
+                    },
+                    "image": "http:\/\/lojalancaperfume.vteximg.com.br\/arquivos\/ids\/370996-105-150\/502VE007669_00627_1.jpg?v=638131176348900000",
+                    "price": 436.1,
+                    "width": 35,
+                    "height": 20,
+                    "length": 45,
+                    "weight": 517,
+                    "discount": 186.9,
+                    "quantity": 1,
+                    "basePrice": 623,
+                    "categories": [
+                        "1",
+                        "30",
+                        "280"
+                    ],
+                    "acquisitionType": "PURCHASE",
+                    "extensionAttributes": {
+                        "ean": "7909917231602",
+                        "ncm": "ZFER",
+                        "origem": "1",
+                        "vtexSku": "217587",
+                        "isFreeGift": false,
+                        "composition": [
+                            {
+                                "vtexSku": "217587",
+                                "quantity": 1,
+                                "fulfillment": "01"
+                            }
+                        ],
+                        "vtexListPrice": 623,
+                        "measurementUnit": "un",
+                        "warehouseExternal": "1009-602"
+                    }
+                }
+            ],
+            "payments": [
+                {
+                    "type": "BOLETO",
+                    "brand": "Boleto Banc\u00e1rio",
+                    "amount": 1059.1,
+                    "currency": "BRL",
+                    "boletoCode": "34191090080838398062380838340000893930000105910",
+                    "isCaptured": true,
+                    "installments": 1,
+                    "paymentNumber": 0,
+                    "transactionNumber": "B0B3060E6C4245B094D319DD2257FAE6",
+                    "extensionAttributes": {
+                        "paymentId": "A7262D9B53C64867A6E9E617B9CE07E2",
+                        "textField": null,
+                        "giftCardId": null,
+                        "lastDigits": null,
+                        "firstDigits": null,
+                        "giftCardName": null,
+                        "fulfillmentId": [
+                            "01"
+                        ],
+                        "paymentSystem": "6",
+                        "connectorResponses": {
+                            "Tid": "00083839",
+                            "tid": "00083839",
+                            "code": "1223847",
+                            "status": "undefined",
+                            "Message": null,
+                            "acquirer": "Boleto",
+                            "maxValue": "1059.1",
+                            "paymentId": "A7262D9B53C64867A6E9E617B9CE07E2",
+                            "ReturnCode": "1223847",
+                            "delayToCancel": "518400",
+                            "bankIssueInvoiceUrl": "https:\/\/api.pagar.me\/core\/v5\/transactions\/tran_mXd340hyOH4x32ZV\/pdf",
+                            "identificationNumber": "34191090080838398062380838340000893930000105910",
+                            "identificationNumberFormatted": "34191.09008 08383.980623 80838.340000 8 93930000105910"
+                        }
+                    }
+                }
+            ],
+            "pointOfSaleId": "lancaperfume",
+            "status": "PROCESSING",
+            "total": 1059.1,
+            "extensionAttributes": null,
+            "placedAt": "2023-06-24T16:48:32.000Z",
+            "createdAt": "2023-06-24T16:48:49.000Z",
+            "updatedAt": "2023-06-30T16:50:56.000Z",
+            "deletedAt": null,
+            "backOfficeId": null,
+            "parentFulfillmentExceptionId": null,
+            "brandId": null,
+            "locationGroupId": null,
+            "companyId": null,
+            "totals": {
+                "itemsAmount": 0,
+                "totalAmount": 2118.2,
+                "totalRefunds": 0,
+                "originalAmount": 2118.2,
+                "shippingAmount": 0,
+                "giftPackageAmount": 0,
+                "totalItemsRefunds": 0,
+                "priceShippingAmount": 0,
+                "totalFreightRefunds": 0,
+                "totalGiftPackageRefunds": 0
+            }
+        },
+        "volumes": [],
+        "invoices": [],
+        "invoice": null
+    },
+    "old": {
+        "fulfillmentId": 98966861,
+        "orderRelationId": 113026337,
+        "id": "02",
+        "orderId": "1341931223847",
+        "channelId": "lancaperfume",
+        "clientId": "lamoda",
+        "locationId": "000009",
+        "operator": null,
+        "ownership": "OMS",
+        "shipment": null,
+        "status": "PENDING",
+        "type": "PICKUP",
+        "extensionAttributes": [],
+        "invoiceKey": null,
+        "billingDeadlineAt": "2023-06-30T16:50:56.000Z",
+        "createdAt": "2023-06-24T16:48:49.000Z",
+        "updatedAt": "2023-06-24T16:48:54.000Z",
+        "deletedAt": null,
+        "freightCosts": {
+            "totalTime": 1,
+            "totalPrice": 0,
+            "handlingTime": 0,
+            "handlingPrice": 0
+        },
+        "pickup": {
+            "prepaid": true,
+            "determinantAddress": {
+                "zip": "88865000",
+                "city": "Nova Veneza",
+                "state": "SC",
+                "number": "1137 ",
+                "country": "Brasil",
+                "address1": "Rua Alfredo Pessi",
+                "location": {
+                    "description": "Ind e Com de Confec La Moda Ltda",
+                    "tradingName": "La Moda (CD)"
+                },
+                "telephone": {
+                    "type": "shipment",
+                    "number": "48 3436-6900",
+                    "countryCode": "48"
+                },
+                "neighbourhood": "Centro"
+            }
+        },
+        "backOfficeId": null,
+        "saleKey": null,
+        "shippingAmount": 0,
+        "reservationId": null,
+        "imported": 0,
+        "dependentFulfillmentId": null,
+        "shipToStore": 0,
+        "processedAt": "2023-06-24T16:48:32.000Z",
+        "cancelReason": null,
+        "packingListId": null,
+        "enablePrePicking": false,
+        "prePickingFinished": false,
+        "scheduledDeliveryDate": "2023-06-30T16:50:56.000Z",
+        "scheduledDeliveryPeriod": null,
+        "poolDeadlineAt": "2023-06-30T16:50:56.000Z",
+        "locationType": "Own Store",
+        "totals": {
+            "itemsAmount": 0,
+            "totalAmount": 0,
+            "totalRefunds": 0,
+            "originalAmount": 0,
+            "shippingAmount": 0,
+            "totalItemsRefund": 0,
+            "giftPackageAmount": 0,
+            "totalFreightRefund": 0,
+            "originalItemsAmount": 0,
+            "priceShippingAmount": 0,
+            "originalShippingAmount": 0,
+            "totalGiftPackageRefund": 0,
+            "originalGiftPackageAmount": 0
+        },
+        "allowDeliveryParcial": false,
+        "shipment_carrierId": null,
+        "totalsRounded": [],
+        "totalsRoundedDiff": [],
+        "appliedRules": null
+    },
+    "difference": {
+        "status": "CANCELED",
+        "billingDeadlineAt": null,
+        "updatedAt": "2023-06-30T16:50:56.000Z",
+        "processedAt": "2023-06-30T16:50:56.000Z",
+        "scheduledDeliveryDate": null,
+        "poolDeadlineAt": null
+    }
+}

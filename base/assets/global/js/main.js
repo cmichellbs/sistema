@@ -319,3 +319,16 @@
   }
 
 })();
+
+$('#id_your_field').select2({
+  ajax: {
+    url: '/your-api-url/',
+    processResults: function (data) {
+      // Transform the response into the format that Select2 expects
+      return {
+        results: data.items
+      };
+    }
+    // Additional AJAX parameters go here
+  }
+});

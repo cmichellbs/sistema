@@ -1,19 +1,34 @@
+
 {% if page_obj %}
-    <div class="pagination">
-        <span class="step-links">
+        <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-                <a href="?page=1&q={{ request.GET.q.strip }}">&laquo; first</a>
-                <a href="?page={{ page_obj.previous_page_number }}&q={{ request.GET.q.strip }}">previous</a>
+                <li class="page-item">
+                    <a class="page-link" href="?page=1&q={{ request.GET.q.strip }}" tabindex="-2" aria-disabled="false">Início</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}&q={{ request.GET.q.strip }}" tabindex="-1" aria-disabled="false">Anterior</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-2" aria-disabled="true">Início</a>
+                </li>
+                <li class="page-item disabled">
+
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                </li>
             {% endif %}
-
-            <span class="current">
-                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-            </span>
-
+            <li class="page-item"><a class="page-link" href="#">   {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}      </a></li>
             {% if page_obj.has_next %}
-                <a href="?page={{ page_obj.next_page_number }}&q={{ request.GET.q.strip }}">next</a>
-                <a href="?page={{ page_obj.paginator.num_pages }}&q={{ request.GET.q.strip }}">last &raquo;</a>
+                <li class="page-item"> <a class="page-link" href="?page={{ page_obj.next_page_number }}&q={{ request.GET.q.strip }}">Próximo</a>
+                <li class="page-item"> <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}&q={{ request.GET.q.strip }}">Fim</a>
+            {% else %}
+                <li class="page-item disabled"> <a class="page-link" href="#">Próximo</a>
+                <li class="page-item disabled"> <a class="page-link" href="#">Fim</a>
             {% endif %}
-        </span>
-    </div>
-{% endif %}
+
+
+            
+
+        </li>
+        </ul>
+  {% endif %}

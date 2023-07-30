@@ -1,0 +1,55 @@
+{% extends 'global/calculo-rapido.html' %}
+{% block form %}
+    <form
+        method="POST"
+        
+    >
+        {% csrf_token %}
+
+        {% for field in form%}
+            <div class="row mb-3">
+                <label for="{{ field.id_for_label }}">{{ field.label}}</label>
+                <div class="col-sm-10">
+                    {{ field }}
+                    {{field.errors}}
+                    {% if field.help_text %}
+                        <p class="help-text">{{ field.help_text }}</p>
+                    {% endif %}
+                    {% comment %} <input type="text" class="form-control"> {% endcomment %}
+                </div>
+            </div>
+        {% endfor %}
+
+        <div class="row mb-3">
+        {% comment %} <label class="col-sm-2 col-form-label">Submit Button</label> {% endcomment %}
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-primary">Calcular</button>
+        </div>
+        </div>
+            {% if form.non_field_errors %}
+                <div class="form-content">
+                <div class="form-group">
+                    <div class="message error">
+                    {{ form.non_field_errors }}
+                    </div>
+                </div>
+                </div>
+            {% endif %}
+    </form>
+    <script>
+        $(document).ready(function() {
+            $('#id_bcb_code').select2({
+                ajax: {
+                    url: '/bcb-autocomplete/',
+                    delay: 250,
+                    processResults: function (data) {
+                      return {
+                        results: data.items
+                      };
+                    }
+                }
+            });
+        });
+    </script>
+{% endblock form %}
+

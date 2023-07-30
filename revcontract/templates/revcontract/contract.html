@@ -1,0 +1,73 @@
+{% extends 'global/single-contract.html' %}
+{% load static %}
+
+{% block visualize %}
+<h5 class="card-title">Descrição</h5>
+                  <p class="small fst-italic">{{contract.contract_description}}</p>
+
+                  <h5 class="card-title">Informações</h5>
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label ">Código Contrato</div>
+                    <div class="col-lg-9 col-md-8">{{contract.pk}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label ">Número do Contrato</div>
+                    <div class="col-lg-9 col-md-8">{{contract.contract_number}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label ">Título do Contrato</div>
+                    <div class="col-lg-9 col-md-8">{{contract.contract_name}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Cliente</div>
+                    <div class="col-lg-9 col-md-8">{{contract.contract_customer}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Valor do contrato</div>
+                    <div class="col-lg-9 col-md-8">{{contract.contract_value}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Juros</div>
+                    <div class="col-lg-9 col-md-8">{{contract.contract_interest_rate }}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Valor da Parcela</div>
+                    <div class="col-lg-9 col-md-8">{{contract.contract_installment_value}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Número de Parcelas</div>
+                    <div class="col-lg-9 col-md-8">{{contract.contract_installment_number}}</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Tipo de Amortização</div>
+                    <div class="col-lg-9 col-md-8">{{contract.contract_amortization_type}}</div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Sistema de Amortização</div>
+                    <div class="col-lg-9 col-md-8">{{contract.contract_amortization_system}}</div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Referência Banco Central</div>
+                    <div class="col-lg-9 col-md-8">{{contract.contract_bcb_sgs_code}}</div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Início Contrato</div>
+                    <div class="col-lg-9 col-md-8">{{contract.contract_start_date}}</div>
+                  </div>
+                  
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Fim do Contrato</div>
+                    <div class="col-lg-9 col-md-8">{{contract.contract_end_date}}</div>
+                  </div>
+{% endblock visualize %}

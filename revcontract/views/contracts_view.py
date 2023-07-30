@@ -9,13 +9,13 @@ from revcontract.models import Contract
 
 
 
-def contracts(request, paginagion = 10):
+def contracts(request):
     contracts = Contract.objects.all().order_by('pk')
 
-    paginator = Paginator(contracts, paginagion)    
+    paginator = Paginator(contracts, 25)    
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-
+    print(request.user)
     context = {
         'page_obj': page_obj,
         'site_title': 'Contratos - ',
@@ -24,5 +24,17 @@ def contracts(request, paginagion = 10):
     print(contracts)
 
     return render(request, 
-                  'revcontrato/contracts_list.html',
+                  'revcontract/contracts.html',
                   context)
+
+def contract(request, contract_id):
+    print(request.user)
+    contract = get_object_or_404(Contract, pk=contract_id)
+    context = {
+        'contract': contract,
+        'site_title': 'Contrato - ',
+    }
+    return render(request, 
+                  'revcontract/contract.html',
+                  context
+                    )

@@ -18,8 +18,8 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf.urls.static import static
 from django.conf import settings
-
 urlpatterns = [
+    # path('autocomplete/', include('dal.urls')),
     path('', include('userinfo.urls')),
     path('', include('customer.urls')),
     path('', include('revcontract.urls')),

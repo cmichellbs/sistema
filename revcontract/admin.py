@@ -3,13 +3,13 @@ from . import models
 
 @admin.register(models.Contract)
 class ContractAdmin(admin.ModelAdmin):
-    list_display = ('contract_number','contract_name','contract_description','contract_start_date','amortization_type','interest_rate','contract_value','contract_file','contract_term','contract_term_unit','contract_end_date','contract_status','contract_created_at','contract_updated_at','contract_installment_value','contract_installment_number','contract_installment_start_date','contract_installment_end_date','contract_owner','contract_created_by','contract_customer','contract_bcb_sgs_code',)
-    list_filter = ('contract_number','contract_name','contract_description','contract_start_date','amortization_type','interest_rate','contract_value','contract_file','contract_term','contract_term_unit','contract_end_date','contract_status','contract_created_at','contract_updated_at','contract_installment_value','contract_installment_number','contract_installment_start_date','contract_installment_end_date','contract_owner','contract_bcb_sgs_code',)
+    list_display = ('contract_number','contract_name','contract_description','contract_start_date','contract_amortization_type','contract_interest_rate','contract_value','contract_file','contract_term','contract_term_unit','contract_end_date','contract_status','contract_created_at','contract_updated_at','contract_installment_value','contract_installment_number','contract_installment_start_date','contract_installment_end_date','contract_owner','contract_created_by','contract_customer','contract_bcb_sgs_code',)
+    list_filter = ('contract_number','contract_name','contract_description','contract_start_date','contract_amortization_type','contract_interest_rate','contract_value','contract_file','contract_term','contract_term_unit','contract_end_date','contract_status','contract_created_at','contract_updated_at','contract_installment_value','contract_installment_number','contract_installment_start_date','contract_installment_end_date','contract_owner','contract_bcb_sgs_code',)
     
-    search_fields = ('contract_number','contract_name','contract_description','contract_start_date','interest_rate','contract_value','contract_file','contract_term','contract_end_date','contract_status','contract_created_at','contract_updated_at','contract_installment_value','contract_installment_number','contract_installment_start_date','contract_installment_end_date','contract_bcb_sgs_code',)
+    search_fields = ('contract_number','contract_name','contract_description','contract_start_date','contract_interest_rate','contract_value','contract_file','contract_term','contract_end_date','contract_status','contract_created_at','contract_updated_at','contract_installment_value','contract_installment_number','contract_installment_start_date','contract_installment_end_date','contract_bcb_sgs_code',)
     
     list_per_page = 25
-    ordering = ('contract_number','contract_name','contract_description','contract_start_date','amortization_type','interest_rate','contract_value','contract_file','contract_term','contract_term_unit','contract_end_date','contract_status','contract_created_at','contract_updated_at','contract_installment_value','contract_installment_number','contract_installment_start_date','contract_installment_end_date','contract_owner','contract_created_by','contract_customer','contract_bcb_sgs_code',)
+    ordering = ('contract_number','contract_name','contract_description','contract_start_date','contract_amortization_type','contract_interest_rate','contract_value','contract_file','contract_term','contract_term_unit','contract_end_date','contract_status','contract_created_at','contract_updated_at','contract_installment_value','contract_installment_number','contract_installment_start_date','contract_installment_end_date','contract_owner','contract_created_by','contract_customer','contract_bcb_sgs_code',)
     date_hierarchy = 'contract_start_date'
     list_max_show_all = 100
 @admin.register(models.AmortizationType)
@@ -37,4 +37,11 @@ class ContractTermUnitAdmin(admin.ModelAdmin):
     ordering = ('contract_term_unit','contract_term_unit_description',)
     list_max_show_all = 100
 
-
+@admin.register(models.BCBSGS)
+class BCBSGSAdmin(admin.ModelAdmin):
+    list_display = ('code','name','unit','frequency','start_date','end_date','source',)
+    list_filter = ('code','name','unit','frequency','start_date','end_date','source',)
+    search_fields = ('code','name','unit','frequency','start_date','end_date','source',)
+    list_per_page = 25
+    ordering = ('code','name','unit','frequency','start_date','end_date','source',)
+    list_max_show_all = 25
