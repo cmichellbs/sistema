@@ -2,7 +2,7 @@ import pandas as pd
 from scipy.optimize import newton
 import sgs
 import json
-
+from math import trunc
 from datetime import datetime
 
 def convert_date_format(input_date):
@@ -303,7 +303,12 @@ class ContractAlternatives(object):
 
         A = self.monthly_payment
         n = self.months
-
+        juro_bcb = round(self.bcb_interest,7)*100
+        juro_bcb = "{:7f}".format(juro_bcb)
+        juro_nominal= round(self.interest_rate,7)*100
+        juro_nominal = "{:7f}".format(juro_nominal)
+        juro_efetivo = round(self.effective_interest_rate,7)*100
+        juro_efetivo = "{:7f}".format(juro_efetivo)
         df_price_bcb = self.price_table(variant='bcb')
         df_price_bcb_parcela = self.price_table(variant='bcb').head(1)
         df_price_bcb_beneficio = (A * n) - df_price_bcb['Valor'].sum()
@@ -334,10 +339,10 @@ class ContractAlternatives(object):
         df_sac_nominal_parcela = self.sac_table().head(1)
         df_sac_nominal_beneficio = (A * n) - df_sac_nominal['Valor'].sum()
 
-        df = pd.DataFrame(columns=['origem_juros','parcela price', 'beneficio price','parcela mejs','beneficio mejs','parcela sac', 'beneficio sac'])  
-        df = pd.concat([df,pd.DataFrame([['effective',df_price_effective_parcela['Valor'][0],df_price_effective_beneficio,df_mejs_effective_parcela['Valor'][0],df_mejs_effective_beneficio,df_sac_effective_parcela['Valor'][0],df_sac_effective_beneficio]],columns=['origem_juros','parcela price', 'beneficio price','parcela mejs','beneficio mejs','parcela sac', 'beneficio sac'])],ignore_index=True)
-        df = pd.concat([df,pd.DataFrame([['nominal',df_price_nominal_parcela['Valor'][0],df_price_nominal_beneficio,df_mejs_nominal_parcela['Valor'][0],df_mejs_nominal_beneficio,df_sac_nominal_parcela['Valor'][0],df_sac_nominal_beneficio]],columns=['origem_juros','parcela price', 'beneficio price','parcela mejs','beneficio mejs','parcela sac', 'beneficio sac'])],ignore_index=True)
-        df = pd.concat([df,pd.DataFrame([['bcb',df_price_bcb_parcela['Valor'][0],df_price_bcb_beneficio,df_mejs_bcb_parcela['Valor'][0],df_mejs_bcb_beneficio,df_sac_bcb_parcela['Valor'][0],df_sac_bcb_beneficio]],columns=['origem_juros','parcela price', 'beneficio price','parcela mejs','beneficio mejs','parcela sac', 'beneficio sac'])],ignore_index=True)
+        df = pd.DataFrame(columns=['Juros Remuneratórios (%)','Valor Parcela Price', 'Benefício Sistema Price','Valor Parcela MEJS','Benefício Sistema MEJS','Valor Parcela SAC', 'Beneficio Sistema SAC'])  
+        df = pd.concat([df,pd.DataFrame([[f'Taxa Efetiva - {juro_efetivo}',df_price_effective_parcela['Valor'][0],df_price_effective_beneficio,df_mejs_effective_parcela['Valor'][0],df_mejs_effective_beneficio,df_sac_effective_parcela['Valor'][0],df_sac_effective_beneficio]],columns=['Juros Remuneratórios (%)','Valor Parcela Price', 'Benefício Sistema Price','Valor Parcela MEJS','Benefício Sistema MEJS','Valor Parcela SAC', 'Beneficio Sistema SAC'])],ignore_index=True)
+        df = pd.concat([df,pd.DataFrame([[f'Taxa Nominal - {juro_nominal}',df_price_nominal_parcela['Valor'][0],df_price_nominal_beneficio,df_mejs_nominal_parcela['Valor'][0],df_mejs_nominal_beneficio,df_sac_nominal_parcela['Valor'][0],df_sac_nominal_beneficio]],columns=['Juros Remuneratórios (%)','Valor Parcela Price', 'Benefício Sistema Price','Valor Parcela MEJS','Benefício Sistema MEJS','Valor Parcela SAC', 'Beneficio Sistema SAC'])],ignore_index=True)
+        df = pd.concat([df,pd.DataFrame([[f'Taxa BACEN - {juro_bcb}',df_price_bcb_parcela['Valor'][0],df_price_bcb_beneficio,df_mejs_bcb_parcela['Valor'][0],df_mejs_bcb_beneficio,df_sac_bcb_parcela['Valor'][0],df_sac_bcb_beneficio]],columns=['Juros Remuneratórios (%)','Valor Parcela Price', 'Benefício Sistema Price','Valor Parcela MEJS','Benefício Sistema MEJS','Valor Parcela SAC', 'Beneficio Sistema SAC'])],ignore_index=True)
         df = df.round({'parcela price': 2, 'beneficio price': 2, 'parcela mejs': 2, 'beneficio mejs': 2, 'parcela sac': 2, 'beneficio sac': 2})
         
         return df

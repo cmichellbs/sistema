@@ -54,6 +54,10 @@
                   <button class="nav-link" data-bs-toggle="tab"><a href="{% url 'revcontract:update' contract.id %}">Editar<a/></button>
                 </li>
 
+                <li class="nav-item">
+                  <button class="nav-link" data-bs-toggle="tab"><a href="{% url 'revcontract:contract-revision' contract.id %}">Calculo Revisional<a/></button>
+                </li>
+
                 {% comment %} <li class="nav-item">
                   <button class="nav-link" data-bs-toggle="tab" data-bs-target="#profile-settings">Settings</button>
                 </li>

@@ -1,0 +1,51 @@
+{% extends 'global/calculo-rapido.html' %}
+
+{% block result %}
+<h4>PRICE EFETIVA</h4>
+<div class="table table-responsive">
+    
+    {{ 'df_price_effective' | safe}}
+</div>
+<h4>PRICE NOMINAL</h4>
+
+<div class="table table-responsive">
+    {{ df_price_nominal | safe}}
+</div>
+<h4>PRICE BCB</h4>
+
+<div class="table table-responsive">
+    {{ df_price_bcb | safe}}
+</div>
+<h4>SAC EFETIVA</h4>
+
+<div class="table table-responsive">
+    {{ df_sac_effective | safe}}
+</div>
+<h4>SAC NOMINAL</h4>
+
+<div class="table table-responsive">
+    {{ df_sac_nominal | safe}}
+</div>
+<h4>SAC BCB</h4>
+
+<div class="table table-responsive">
+    {{ df_sac_bcb | safe}}
+</div>
+<h4>MEJS EFETIVA</h4>
+
+<div class="table table-responsive">
+    {{ df_mejs_effective | safe}}
+</div>
+<h4>MEJS NOMINAL</h4>
+
+<div class="table table-responsive">
+    {{ df_mejs_nominal | safe}}
+</div>
+<h4>MEJS BCB</h4>
+
+<div class="table table-responsive">
+    {{ df_mejs_bcb | safe}}
+</div>
+
+
+{% endblock result %}
