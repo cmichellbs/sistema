@@ -7,6 +7,7 @@ import pandas as pd
 import sgs
 import requests
 import datetime as dt
+from main.utils import convert_date_format
 
 # Create your models here.
 
@@ -63,7 +64,6 @@ class BCBSGS (models.Model):
         return f'{self.code} - {self.name}'
     
     
-    
 
 class Contract (models.Model):
     contract_number = models.CharField(max_length=300,null=True,blank=True,verbose_name='Número de contrato',help_text='Número de contrato',)
@@ -71,7 +71,7 @@ class Contract (models.Model):
     contract_description = models.TextField(max_length=300,blank=True,verbose_name='Descrição do contrato',help_text='Descrição do contrato',)
     contract_start_date = models.DateField(null=False,blank=False,verbose_name='Data de início do contrato',help_text='Data de início do contrato',)
     contract_amortization_type = models.ForeignKey(AmortizationType,verbose_name="Tipo de amortização",on_delete=models.SET_NULL,null=True,blank=True,help_text='Tipo de amortização',)
-    contract_interest_rate = models.DecimalField(max_digits=5,decimal_places=2,null=False,blank=False,verbose_name='Taxa de juros',help_text='Taxa de juros',)
+    contract_interest_rate = models.FloatField(null=False,blank=False,verbose_name='Taxa de juros do contrato',help_text='Taxa de juros do contrato',)
     contract_value = models.DecimalField(max_digits=20,decimal_places=2,null=False,blank=False,verbose_name='Valor do contrato',help_text='Valor do contrato',)
     contract_file = models.FileField(upload_to='documents/%Y/%m/%d/',null=True,blank=True,verbose_name='Arquivo do contrato',help_text='Arquivo do contrato',)
     contract_term = models.IntegerField(null=False,blank=False,verbose_name='Prazo do contrato',help_text='Prazo do contrato',)
@@ -102,20 +102,22 @@ class Contract (models.Model):
         return BCBSGS.objects.get(code=self.contract_bcb_sgs_code.code)
     
     def get_bcb_sgs_interest(self):
-        ts = sgs.time_serie(self.contract_bcb_sgs_code.code, start='01/01/1900', end='31/12/3000')
-        df = pd.DataFrame(ts)
         start = self.contract_start_date.replace(day=1)
-        sdf = (df.index == start)
-        newdf = df.loc[sdf]
-        if newdf.empty:
+        start = str(start)
+        start = convert_date_format(start)
+        ts = sgs.time_serie(self.contract_bcb_sgs_code.code, start=start, end=start)
+        df = pd.DataFrame(ts)
+       
+        
+        if df.empty:
+            ts = sgs.time_serie(self.contract_bcb_sgs_code.code, start='01/01/1900', end='31/12/3000')
+            df = pd.DataFrame(ts)
             df = df.tail(3)
-            for index, row in df.iterrows():
-                sv = 0
-                sv += row[self.contract_bcb_sgs_code.code]
-            avg = sv/3
+            avg = df[self.contract_bcb_sgs_code.code].sum() / 3
             return avg
         else:
-            return newdf[self.contract_bcb_sgs_code.code]
+            return df[self.contract_bcb_sgs_code.code].sum()
+        
     def save(self, *args, **kwargs):
         if self.contract_term_unit == 'M' and self.contract_term > 0 and self.contract_start_date is not None and self.contract_end_date is None:
             self.contract_end_date = self.contract_start_date + \
@@ -141,79 +143,3 @@ class Contract (models.Model):
         super(Contract, self).save(*args, **kwargs) 
             
 
-class ContractAlternatives(models.Model):
-    ...
-    contract = models.ForeignKey(Contract,verbose_name="Contrato",on_delete=models.SET_NULL,null=True,blank=True,help_text='Contrato',) 
-    contract_amortization_system = models.ForeignKey(AmortizationSystem,verbose_name="Sistema de amortização",on_delete=models.SET_NULL,null=True,blank=True,help_text='Sistema de amortização',)
-    
-    class Meta:
-        verbose_name = 'Alternativa de contrato'
-        verbose_name_plural = 'Alternativas de contrato'
-    
-    def __str__(self):
-        return self.contract_amortization_system.amortization_system +' - '+ self.contract.contract_name
-    
-
-    
-    
-    def price_table(self):
-        '''Receberá o valor dos juros do contrato, valor do contrato, numero de parcelas, 
-        tipo de amortização (mensal, anual, etc) e retornará o valor da parcela'''
-
-        # Calcula o valor da parcela
-        # P = C * (i * (1 + i) ** n) / ((1 + i) ** n - 1)
-        # P = valor da parcela
-        # C = valor do contrato
-        # i = taxa de juros
-        # n = numero de parcelas
-        C = self.contract.contract_value
-        i = self.contract.contract_interest_rate
-        n = self.contract.contract_installment_number
-        P = C * (((1 + i)**n)*i)/(((1 + i)**n)-1)
-        
-        df = pd.DataFrame(columns=['Parcela','Valor','Juros','Amortização','Saldo Devedor'])
-        for  i in range(1,n+1):
-            if i == 1:
-                saldo_devedor = C
-            juros = saldo_devedor * i
-            amortizacao = P - juros
-            saldo_devedor = saldo_devedor - amortizacao
-            df.concat([df,pd.DataFrame([[i,P,juros,amortizacao,saldo_devedor]],columns=['Parcela','Valor','Juros','Amortização','Saldo Devedor'])],ignore_index=True)
-        return df
-             
-    def sac_table(self):
-        '''Receberá o valor dos juros do contrato, valor do contrato, numero de parcelas, 
-        tipo de amortização (mensal, anual, etc) e retornará o valor da parcela'''
-
-        # Calcula o valor da parcela
-        # P = C * (i * (1 + i) ** n) / ((1 + i) ** n - 1)
-        # P = valor da parcela
-        # C = valor do contrato
-        # i = taxa de juros
-        # n = numero de parcelas
-        C = self.contract.contract_value
-        i = self.contract.contract_interest_rate
-        n = self.contract.contract_installment_number
-        
-        
-        
-        df = pd.DataFrame(columns=['Parcela','Valor','Juros','Amortização','Saldo Devedor'])
-        for  item in range(1,n+1):
-            P1 = (C/n) + (C*i)
-            if item == 1:
-                saldo_devedor = C
-                amortizacao = C/n
-                P = P1
-                juros = saldo_devedor * i
-            else:
-                amortizacao = C/n
-                saldo_devedor = saldo_devedor - amortizacao
-                P = P1 - (amortizacao*i)
-                juros = saldo_devedor * i
-
-            df.concat([df,pd.DataFrame([[item,P,juros,amortizacao,saldo_devedor]],columns=['Parcela','Valor','Juros','Amortização','Saldo Devedor'])],ignore_index=True)
-            
-        return df
-    
-    def bsb_sgs_table(self):
-        ...

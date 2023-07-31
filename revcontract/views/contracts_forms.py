@@ -9,7 +9,7 @@ from revcontract.models import Contract
 def create(request):
     print(request.user)
     form_action = reverse('revcontract:create')
-
+    print(request.POST)
     if request.method == 'POST':
         form = ContractFormCreate(request.POST, request.FILES)
         
@@ -18,6 +18,8 @@ def create(request):
             'form_action': form_action,
         }
 
+        for field in form:
+            print("Field Error:", field.name,  field.errors)
         if form.is_valid():
             contract = form.save(commit=False)
             contract.contract_owner = request.user

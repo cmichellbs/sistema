@@ -127,7 +127,7 @@ The fields are defined with their respective widgets and attributes, such as cla
         label='Tipo de amortização',
         required=True
     )
-    contract_interest_rate = forms.DecimalField(
+    contract_interest_rate = forms.FloatField(
         widget=forms.NumberInput(
             attrs={
                 'class': 'form-control',

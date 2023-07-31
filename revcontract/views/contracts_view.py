@@ -11,6 +11,7 @@ from main.utils import ContractAlternatives
 
 
 def contracts(request):
+    
     contracts = Contract.objects.all().order_by('pk')
 
     paginator = Paginator(contracts, 25)    
