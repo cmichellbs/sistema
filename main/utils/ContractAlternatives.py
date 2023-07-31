@@ -311,33 +311,78 @@ class ContractAlternatives(object):
         juro_efetivo = "{:7f}".format(juro_efetivo)
         df_price_bcb = self.price_table(variant='bcb')
         df_price_bcb_parcela = self.price_table(variant='bcb').head(1)
-        df_price_bcb_beneficio = (A * n) - df_price_bcb['Valor'].sum()
+
+        if round((A * n) - df_price_bcb['Valor'].sum(),2) <= 0:
+            df_price_bcb_beneficio = 0
+        else:
+            df_price_bcb_beneficio = round((A * n) - df_price_bcb['Valor'].sum(),2)
+
         df_price_effective = self.price_table(variant='effective')
         df_price_effective_parcela = self.price_table(variant='effective').head(1)
-        df_price_effective_beneficio = (A * n) - df_price_effective['Valor'].sum()
+
+        if round((A * n) - df_price_effective['Valor'].sum(),2) <= 0:
+             df_price_effective_beneficio = 0
+        else:
+            df_price_effective_beneficio = round((A * n) - df_price_effective['Valor'].sum(),2)
+
         df_price_nominal = self.price_table()
         df_price_nominal_parcela = self.price_table().head(1)
-        df_price_nominal_beneficio = (A * n) - df_price_nominal['Valor'].sum()
+
+        if round((A * n) - df_price_nominal['Valor'].sum(),2) <= 0:
+            df_price_nominal_beneficio = 0
+        else:
+            df_price_nominal_beneficio = round((A * n) - df_price_nominal['Valor'].sum(),2)
 
         df_mejs_bcb = self.mejs_table(variant='bcb')
         df_mejs_bcb_parcela = self.mejs_table(variant='bcb').head(1)
-        df_mejs_bcb_beneficio = (A * n) - df_mejs_bcb['Valor'].sum()
+
+        if round((A * n) - df_mejs_bcb['Valor'].sum(),2) <= 0:
+            df_mejs_bcb_beneficio = 0
+        else:
+            df_mejs_bcb_beneficio = round((A * n) - df_mejs_bcb['Valor'].sum(),2)
+
+        
         df_mejs_effective = self.mejs_table(variant='effective')
         df_mejs_effective_parcela = self.mejs_table(variant='effective').head(1)
-        df_mejs_effective_beneficio = (A * n) - df_mejs_effective['Valor'].sum()
+
+        if round((A * n) - df_mejs_effective['Valor'].sum(),2) <= 0:
+            df_mejs_effective_beneficio = 0
+        else:
+            df_mejs_effective_beneficio = round((A * n) - df_mejs_effective['Valor'].sum(),2)
+
+        
         df_mejs_nominal = self.mejs_table()
         df_mejs_nominal_parcela = self.mejs_table().head(1)
-        df_mejs_nominal_beneficio = (A * n) - df_mejs_nominal['Valor'].sum()
+        
+        if round((A * n) - df_mejs_nominal['Valor'].sum(),2) <= 0:
+            df_mejs_nominal_beneficio = 0
+        else:
+            df_mejs_nominal_beneficio = round((A * n) - df_mejs_nominal['Valor'].sum(),2)
 
         df_sac_bcb = self.sac_table(variant='bcb')
         df_sac_bcb_parcela = self.sac_table(variant='bcb').head(1)
-        df_sac_bcb_beneficio = (A * n) - df_sac_bcb['Valor'].sum()
+
+        if round((A * n) - df_sac_bcb['Valor'].sum(),2) <= 0:
+            df_sac_bcb_beneficio = 0
+        else:
+            df_sac_bcb_beneficio = round((A * n) - df_sac_bcb['Valor'].sum(),2)
+
         df_sac_effective = self.sac_table(variant='effective')
         df_sac_effective_parcela = self.sac_table(variant='effective').head(1)
-        df_sac_effective_beneficio = (A * n) - df_sac_effective['Valor'].sum()
+
+        if round((A * n) - df_sac_effective['Valor'].sum(),2) <= 0:
+            df_sac_effective_beneficio = 0
+        else:
+            df_sac_effective_beneficio = round((A * n) - df_sac_effective['Valor'].sum(),2)
+
+
         df_sac_nominal = self.sac_table()
         df_sac_nominal_parcela = self.sac_table().head(1)
-        df_sac_nominal_beneficio = (A * n) - df_sac_nominal['Valor'].sum()
+
+        if round((A * n) - df_sac_nominal['Valor'].sum(),2) <= 0:
+            df_sac_nominal_beneficio = 0
+        else:
+            df_sac_nominal_beneficio = round((A * n) - df_sac_nominal['Valor'].sum(),2)
 
         df = pd.DataFrame(columns=['Juros Remuneratórios (%)','Valor Parcela Price', 'Benefício Sistema Price','Valor Parcela MEJS','Benefício Sistema MEJS','Valor Parcela SAC', 'Beneficio Sistema SAC'])  
         df = pd.concat([df,pd.DataFrame([[f'Taxa Efetiva - {juro_efetivo}',df_price_effective_parcela['Valor'][0],df_price_effective_beneficio,df_mejs_effective_parcela['Valor'][0],df_mejs_effective_beneficio,df_sac_effective_parcela['Valor'][0],df_sac_effective_beneficio]],columns=['Juros Remuneratórios (%)','Valor Parcela Price', 'Benefício Sistema Price','Valor Parcela MEJS','Benefício Sistema MEJS','Valor Parcela SAC', 'Beneficio Sistema SAC'])],ignore_index=True)
